@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARIALKHA AGRO — Design System ("Paddy Row Editorial")</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rice:#F6F1E3; --rice-deep:#EFE7D2;
+  --paddy-950:#0C2B1E; --paddy-800:#14432E; --paddy-600:#1E5B3E; --paddy-400:#3E8E5A;
+  --leaf:#7AA95C; --sun:#E2A52B; --sun-deep:#C98D1B; --husk:#2B2618;
+  --clay:#B2633A; --water:#5E8F86; --line:rgba(12,43,30,.14);
+  --font-display:"Fraunces","Noto Serif Bengali",serif;
+  --font-bn:"Hind Siliguri",sans-serif;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-display);background:var(--rice);color:var(--husk);line-height:1.6;padding-bottom:80px}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+h1{font-size:40px;color:var(--paddy-950);line-height:1.1;margin:56px 0 8px;letter-spacing:-.01em}
+.sub{opacity:.7;margin-bottom:8px}
+h2{font-size:26px;color:var(--paddy-950);margin:56px 0 20px;padding-top:32px;border-top:1px solid var(--line)}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.sw{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.sw .chip{height:88px}
+.sw .meta{padding:10px 12px;font-size:13px}
+.sw .meta b{display:block;color:var(--paddy-950);font-size:13.5px}
+.sw .meta span{opacity:.6;font-size:12px}
+.type-spec{border:1px solid var(--line);border-radius:14px;padding:26px;background:#fff;margin-bottom:16px}
+.type-spec .label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--water);font-weight:600;margin-bottom:10px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15.5px;border-radius:999px;padding:13px 24px;border:1.5px solid transparent;cursor:pointer;font-family:inherit;margin:0 10px 10px 0;text-decoration:none}
+.btn-primary{background:var(--sun);color:#3A2A05;box-shadow:0 5px 0 var(--sun-deep)}
+.btn-secondary{background:transparent;color:var(--paddy-800);border-color:var(--paddy-600)}
+.btn-ghost{color:var(--paddy-600);padding:13px 8px}
+.dark-demo{background:var(--paddy-950);border-radius:14px;padding:30px}
+.badges span{display:inline-block;background:var(--paddy-950);color:var(--rice);font-size:11.5px;font-weight:600;letter-spacing:.06em;padding:5px 12px;border-radius:999px;text-transform:uppercase;margin:0 8px 8px 0}
+.badges .sun{background:var(--sun);color:var(--paddy-950)}
+.badges .clay{background:var(--clay);color:#fff}
+.badges .water{background:var(--water);color:#fff}
+.rule{margin:20px 0}
+.tokens{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:var(--paddy-950);color:#D8E6DC;border-radius:14px;padding:22px;overflow:auto;line-height:1.8}
+ul{margin:10px 0 0 20px}
+li{margin-bottom:6px;font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>ARIALKHA AGRO — Design System</h1>
+<p class="sub">Concept name: <b>"Paddy Row Editorial"</b>. Version 0.1 — visual direction for the storefront.</p>
+
+<h2>1 · The Concept</h2>
+<ul>
+<li><b>Editorial, not e-commerce template.</b> The site reads like a beautifully printed harvest journal — generous whitespace, serif display type, asymmetric grids, generous line-height. Rice is a heritage product; the UI borrows dignity from print, not from app UI kits.</li>
+<li><b>The paddy-row motif.</b> Fine horizontal line stacks (repeating-linear-gradient) appear between major sections — a fingerprint of terraced paddy fields. This replaces generic divider lines and section backgrounds. It is cheap to render, scales to any width, and is unmistakable once you see it.</li>
+<li><b>Hand-made illustration instead of stock photography.</b> All visuals on the homepage prototype are inline SVG (paddy terraces, a farmer silhouette at sunset, rice-sack product marks). Flat, warm, slightly imperfect — like block-printed packaging. Swap for real R2-hosted photography in production, keeping the same color treatment.</li>
+</ul>
+
+<h2>2 · The Aesthetic Risk (and its justification)</h2>
+<p><b>Risk: the primary CTA is mustard yellow, not green — and body ink is warm husk-brown, not black.</b></p>
+<ul>
+<li>Every natural-brand site on earth makes green the action color. Green here instead does the brand work (trust, foliage, header, footer), while <b style="color:var(--sun-deep)">--sun #E2A52B</b> does the conversion work. Mustard is the color of harvested paddy itself — it is <i>literally</i> the client's product — and it carries ≥4.5:1 contrast against both cream and deep green when paired with dark text (#3A2A05 on #E2A52B ≈ 8.5:1).</li>
+<li>Pure black (#000) is banned. Text uses <b>#2B2618</b> — rice-husk brown — which keeps long-form Bangla reading soft and warm, and reinforces "paper & grain" rather than "screen & SaaS".</li>
+<li>A supporting risk: <b>oversized Bengali glyphs ("ধান", "মাটি, পানি, রোদ") used as decorative background art</b> inside an English-first layout. Justified because the brand is bilingual by mandate — Bangla is treated as a first-class visual citizen, not a translated afterthought.</li>
+</ul>
+
+<h2>3 · Color Tokens</h2>
+<div class="swatches">
+  <div class="sw"><div class="chip" style="background:#F6F1E3"></div><div class="meta"><b>Rice Cream</b><span>#F6F1E3 · page background</span></div></div>
+  <div class="sw"><div class="chip" style="background:#EFE7D2"></div><div class="meta"><b>Rice Deep</b><span>#EFE7D2 · alt sections</span></div></div>
+  <div class="sw"><div class="chip" style="background:#0C2B1E"></div><div class="meta"><b>Paddy 950</b><span>#0C2B1E · brand dark</span></div></div>
+  <div class="sw"><div class="chip" style="background:#1E5B3E"></div><div class="meta"><b>Paddy 600</b><span>#1E5B3E · links / icons</span></div></div>
+  <div class="sw"><div class="chip" style="background:#3E8E5A"></div><div class="meta"><b>Paddy 400</b><span>#3E8E5A · mid green</span></div></div>
+  <div class="sw"><div class="chip" style="background:#7AA95C"></div><div class="meta"><b>Leaf</b><span>#7AA95C · light foliage</span></div></div>
+  <div class="sw"><div class="chip" style="background:#E2A52B"></div><div class="meta"><b>Harvest Sun</b><span>#E2A52B · primary CTA</span></div></div>
+  <div class="sw"><div class="chip" style="background:#C98D1B"></div><div class="meta"><b>Sun Deep</b><span>#C98D1B · pressed state</span></div></div>
+  <div class="sw"><div class="chip" style="background:#2B2618"></div><div class="meta"><b>Husk Ink</b><span>#2B2618 · body text</span></div></div>
+  <div class="sw"><div class="chip" style="background:#B2633A"></div><div class="meta"><b>Clay</b><span>#B2633A · accents, sale</span></div></div>
+  <div class="sw"><div class="chip" style="background:#5E8F86"></div><div class="meta"><b>River</b><span>#5E8F86 · info/status only</span></div></div>
+</div>
+<p style="font-size:14px;margin-top:14px;opacity:.75">Usage rule: green carries identity, mustard carries action, clay carries urgency (real discounts only), river carries informational labels. Never use water-blue for CTAs.</p>
+
+<h2>4 · Typography</h2>
+<div class="type-spec"><div class="label">Display EN — Fraunces 600 / headlines & prices</div><div style="font-size:38px;color:var(--paddy-950);line-height:1.1">From the soil of Bengal, <em style="color:var(--paddy-600)">honestly grown.</em></div></div>
+<div class="type-spec"><div class="label">Display BN — Noto Serif Bengali / decorative Bangla</div><div style="font-family:'Noto Serif Bengali';font-size:34px;color:var(--paddy-950)">মাটি, পানি, রোদ — খাঁটি বাংলার ধান</div></div>
+<div class="type-spec"><div class="label">Body BN — Hind Siliguri 400–600 / UI & long-form Bangla</div><div class="bn" style="font-family:'Hind Siliguri';font-size:18px">আমরা সরাসরি কৃষকের কাছ থেকে ধান কিনি — রোপণের আগেই দাম নির্ধারিত থাকে, তাই কৃষক নিশ্চিন্ত, আপনি নিশ্চিন্ত।</div></div>
+<div class="type-spec"><div class="label">Numerals — always locale-formatted</div><div style="font-size:20px">EN: ৳165 / 1,240 kg &nbsp;·&nbsp; BN: <span style="font-family:'Hind Siliguri'">৳১৬৫ / ১,২৪০ কেজি</span></div></div>
+
+<h2>5 · Signature Motif — The Paddy Row</h2>
+<div class="rule" style="height:26px;background:repeating-linear-gradient(to bottom,var(--line) 0 1px,transparent 1px 6.5px);-webkit-mask-image:linear-gradient(to right,transparent,black 15%,black 85%,transparent);mask-image:linear-gradient(to right,transparent,black 15%,black 85%,transparent)"></div>
+<p style="font-size:14px;opacity:.7">Pure CSS: repeating-linear-gradient, 1px lines at 6.5px rhythm, edge-masked. Zero images, zero JS, instant paint. Used between sections instead of whitespace or stock texture.</p>
+
+<h2>6 · Buttons</h2>
+<div>
+  <a class="btn btn-primary" href="#">Shop the harvest</a>
+  <a class="btn btn-secondary" href="#">Read our story</a>
+  <a class="btn btn-ghost" href="#">View all lots →</a>
+</div>
+<div class="dark-demo">
+  <a class="btn btn-primary" href="#">Shop the harvest</a>
+  <a class="btn btn-secondary" style="color:var(--rice);border-color:rgba(246,241,227,.4)" href="#">Read our story</a>
+</div>
+<p style="font-size:14px;opacity:.7;margin-top:10px">Primary button has a 3D "seed pressed into soil" shadow (0 6px 0 sun-deep) that compresses on click. Distinctive, tactile, still fully accessible via focus ring + keyboard.</p>
+
+<h2>7 · Badges & Status</h2>
+<div class="badges">
+  <span>Best seller</span><span class="sun">New lot</span><span class="clay">−11% real offer</span><span class="water">In stock</span>
+</div>
+
+<h2>8 · CSS Token Block (paste-ready)</h2>
+<pre class="tokens">:root{
+  --rice:#F6F1E3; --rice-deep:#EFE7D2;
+  --paddy-950:#0C2B1E; --paddy-800:#14432E; --paddy-600:#1E5B3E; --paddy-400:#3E8E5A;
+  --leaf:#7AA95C; --sun:#E2A52B; --sun-deep:#C98D1B; --husk:#2B2618;
+  --clay:#B2633A; --water:#5E8F86; --line:rgba(12,43,30,.14);
+  --font-display:"Fraunces","Noto Serif Bengali",serif;
+  --font-bn:"Hind Siliguri",sans-serif;
+  --radius:14px;
+  /* paddy-row divider */
+  --furrows: repeating-linear-gradient(to bottom, var(--line) 0 1px, transparent 1px 6.5px);
+}</pre>
+
+<h2>9 · Rules That Keep It Distinctive</h2>
+<ul>
+<li>Ban pure black, pure white backgrounds beyond cards, neon anything, glassmorphism.</li>
+<li>Max one accent color per screen region.</li>
+<li>Every crossed-out price must map to a real, dated campaign (enforced server-side later).</li>
+<li>Bangla text never uses a Latin font fallback mid-sentence — split strings at the CMS layer.</li>
+<li>Motion is limited to ≤300ms, translate/scale only, and fully disabled under <code>prefers-reduced-motion</code>.</li>
+<li>Images carry the warm duotone treatment (paddy greens + mustard) — no raw stock-photo color.</li>
+</ul>
+
+</div>
+</body>
+</html>
